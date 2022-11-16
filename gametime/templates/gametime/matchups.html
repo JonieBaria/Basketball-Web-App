@@ -1,0 +1,135 @@
+ {% extends 'gametime/main.html' %}
+
+
+ {% block content %}
+
+
+
+            
+
+<div align="center"><p style="font-family: Roboto; background-color: #f58220; width: 300px;height: 30px; font-size: x-large; font-weight: bolder; border-radius: 10px; color: #0f0d0f; margin-top: 50px;">Upcoming Games</p>
+<p align="center" style="margin-top: 10px; margin-bottom:30px"><a style="font-family: Roboto; color: #f58220; margin-top: 10px; text-decoration: none;" href="{% url 'PlayerProf' %}" > Back to Profile</a></p>
+</div>
+
+<div style="font-family: Roboto; display: inline-block;">
+    
+    {% for one in all_scheds %}
+        <div style="
+            width: 410px;
+            height: 300px;
+            display:inline-block;
+            justify-content: center;
+            justify-items: center;
+            align-items: center;
+            align: center;"
+                >
+            <h4 style="margin-bottom: 5px"align="center">{{one}}</h4>
+
+            <div style="
+               display: inline-block;
+               height: 250px;
+               width: 400px;
+               background-color: #5d5d67;
+               border-radius: 20px;
+               justify-content: center;
+               justify-items: center;
+               align-items: center;
+               align: center;
+               margin-top: 0px;
+                ">
+                    <div style="
+                    display: grid;
+                    grid-template-columns: 100px 100px 100px;
+                    height: 120px;
+                    vertical-align: top;
+                    
+                    justify-content: center;
+                    
+                    padding-top: 20px;
+                    
+                    margin-top: 5px;
+                    color: white;">
+
+
+
+                    <div style="
+                display:inline-block; vertical-align: top;
+                "
+                >
+
+                    <table align="center" style="border: solid;">
+                        <tr>
+                            <th style="background-color: #f58220; color: black;">TEAM 1</th>   
+
+                        </tr>
+
+                        {% for one in cenTeam1 %}
+                        <tr>
+                            <td>{{one}}</td>
+                        </tr>
+
+                        {% endfor %}
+                    </table>
+                    </div>
+            
+                
+                <div style="display: inline-block;
+                vertical-align: middle;
+                height: 100px;
+                margin-top: 30px;
+                margin-bottom: 30px;
+                margin-left: 40px;
+                justify-content: center;
+                align-items: center;
+                padding-top: 50px;
+                ">
+                        
+                    <p style="font-size: medium;
+                    font-weight: bold;
+                    ">VS.</p>
+                   
+
+                </div>
+
+                
+                    
+                
+                
+                 <div style="
+                display:inline-block;
+                vertical-align: top;">
+
+                    <table align="center"  style="border: solid;">
+                        <tr>
+                            <th style="background-color: #f58220; color: black;">TEAM 2</th>   
+
+                        </tr>
+
+                        {% for two in cenTeam2 %}
+                        <tr>
+                            <td>{{two}}</td>
+                        </tr>
+
+                        {% endfor %}
+                    </table>
+                </div>
+
+                </div>
+                
+            </div>
+
+
+
+
+        </div>
+            
+        {% endfor %}  
+
+</div>
+        
+
+                
+
+	
+ {% endblock %}
+ 

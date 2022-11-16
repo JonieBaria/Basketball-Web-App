@@ -1,0 +1,91 @@
+ {% extends 'gametime/main.html' %}
+
+
+ {% block content %}
+
+
+
+
+    <div align="center">
+        
+        <p style="display: inline-block; font-size: 60px; font-weight: 400; text-align: center; font-family: Roboto; margin-top: 50px">Profile</p>
+        <p> <span style="margin-left: 40px"><a style="color: #f58220; text-decoration: none; font-family: roboto" href="{% url 'Schedgames' %}"> Game Schedules</a></span>
+    <span style="margin-left: 40px"><a style="color: #f58220; text-decoration: none; font-family: roboto" href="{% url 'matchups' %}"> Upcoming Games</a></span></p>
+   
+    </div>
+    
+ 
+
+
+ 
+
+
+        <div class="profilepage" align="center">
+    <div class="plyrinfo"> 
+            <h2 align="center"class="profilepageplyr"> Prayer Information</h2>
+            <div>
+                <p>Name: <b>{{request.user.player.name }}</b></p>
+                <p>Age: {{request.user.player.age }}</p>
+                <p>Height: {{request.user.player.height }}</p>
+                <p>Email Address: {{request.user.player.email }}</p>
+            </div>
+    </div>
+
+
+    <div class="plyrsched">
+        
+            <h2 align="center"class="profilepageplyr"> My Schedule</h2>
+            <div>
+                <table align="center">
+                    <tr>
+                        <th>Court</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                        <th>Payment Status</th>
+                        <th>Update</th>
+                        <th>Delete</th>
+
+                    </tr>
+
+                    {% for player in playerr %}
+                    <tr>
+                        <td>{{player.schedule.court}}</td>
+                        <td>{{player.schedule.date}}</td>
+                        <td>{{player.schedule.schedule}}</td>
+                        <td>{{player.payment}}</td>
+                        <td><a href="{% url 'update_booking' player.id %}">Update</a></td>
+                        <td><a href="{% url 'delete_booking' player.id %}">Delete</a></td>
+
+      
+                        
+                    </tr>
+
+                    {% endfor %}
+                </table>
+            </div>
+    </div>
+
+    <div class="plyrstats">
+            <h2 align="center"class="profilepageplyr">My Stats</h2>
+            <div>
+
+                <table border="1">
+                <tr> <td>Total Games: </td> <td>{{totalbooking}}</td> </tr>
+                <tr> <td>Wins: </td> <td>-----</td> </tr>
+                <tr> <td>Losses: </td> <td>-----</td> </tr>
+                <tr> <td>Total Score: </td> <td>-----</td> </tr>
+                <tr> <td>Rank: </td> <td>-----</td> </tr>
+                <tr> <td>Percentage:</td> <td>-----</td> </tr>
+                </table>
+
+            </div>
+        </div>
+
+    </div>
+    </div>
+    </div>
+
+    
+
+    
+ {% endblock %}

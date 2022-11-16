@@ -1,0 +1,47 @@
+ {% extends 'gametime/main.html' %}
+
+
+ {% block content %}
+
+	<br>
+
+
+        <div style="font-family: roboto" align="center" >
+            <div class="col-md">
+                <div class="card card-body">
+                    <span style="margin-left: 40px"><a style="color: #f58220; text-decoration: none; font-family: roboto;" href="{% url 'PlayerProf' %}">Back to Profile</a></span>
+                    <h1 align="center" style="font-family: roboto;">CONFIRMED SCHEDULES</h1>
+                </div>
+                <div style="padding-bottom: 20px;">
+                    <table  style="width:60%" class="table">
+                        <tr>
+                            <th></th>
+                            <th align="center">Court</th>
+                            <th align="center">Date</th>
+                            <th align="center">Time</th>
+                            <th align="center">Price</th>
+                            
+                        </tr>
+                        {% for i in schedules %}
+                            <tr>
+                                <td><a href="{% url 'create_booking' %}">Book Now</a></td>
+                                <td align="center">{{i.court}}</td>
+                                <td align="center">{{i.date}}</td>
+                                <td align="center">{{i.schedule}}</td>
+                                <td align="center">Php {{i.price}}</td>
+                                
+                            </tr>
+                        {% endfor %}
+                    </table>
+
+
+                    
+                </div>
+            </div>
+            
+        </div>
+
+        <br>
+        <br>
+	
+ {% endblock %}

@@ -1,0 +1,16 @@
+ {% extends 'gametime/main.html' %}
+ {% load static %}
+ {% block content %}
+
+    <span><a href="{% url 'PlayerProf' %}"> Back to Profile</a></span>
+    <br>
+ <hr>
+
+    <form action="" method="POST">
+        {% csrf_token %}
+            {{form}}
+        
+        <input type="submit" name="Submit">
+    </form>
+
+ {% endblock %}

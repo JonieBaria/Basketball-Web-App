@@ -1,0 +1,19 @@
+ {% extends 'gametime/main.html' %}
+ {% load static %}
+ {% block content %}
+ 
+<p>Are you sure you want to delete "{{booking.schedule}}"</p>
+
+<form action="{% url 'delete_booking' booking.id %}"method="POST">
+
+    {% csrf_token %}
+
+    <a href="{% url 'PlayerProf' %}">Cancel</a>    
+
+    <input type="submit" name="Confirm">
+    
+
+
+</form>
+
+ {% endblock %}
